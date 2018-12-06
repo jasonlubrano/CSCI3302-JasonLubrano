@@ -55,6 +55,7 @@ class KMeansClassifier(object):
 		# Fit k clusters to the data, by starting with k randomly selected cluster centers.
 		# HINT: To choose reasonable initial cluster centers, you can set them to be in the same spot as random (different) points from the dataset
 		self._cluster_centers = random.sample(self._data, k)[:]
+		#try it with [:] bc that should do the entire set of data
 		#while goes to the center of the clusts
 		while not False:
 			self._cls_clusts = []
@@ -130,6 +131,8 @@ class KNNClassifier(object):
 	def classify_datapoint(self, data_point, k):
 		best_label = None
 		for id_n, n in enumerate(self._data):
+			#n is the nearest neighbor
+			#id n is the id of the neighbor
 			dist_cur = 0
 			for i in range(len(data_point)): dist_cur += (data_point[i] - n[0][i]) ** 2
 			dist_cur = dist_cur ** (1 / 2)
